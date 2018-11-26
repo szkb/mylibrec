@@ -102,6 +102,9 @@ public class SparseMatrixTest {
 //            System.out.print(socialMatrixEntry.row() + " ");
 //            System.out.println(socialMatrixEntry.column());
 //        }
-
+//        SparseMatrix matrix1 = new SparseMatrix(matrix);
+//        matrix1.set(1, 2, 0.0001);
+//        System.out.println(matrix);
+//        System.out.println(matrix1);
     }
 }

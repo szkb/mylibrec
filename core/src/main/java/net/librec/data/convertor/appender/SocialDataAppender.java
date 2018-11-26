@@ -271,13 +271,7 @@ public class SocialDataAppender extends Configured implements DataAppender {
             }
         }
         userSocialMatrix1 = new SparseMatrix(numRows, numCols, dataTable, colMap);
-//        System.out.println(userSocialMatrix1);
-//        userSocialMatrix1.set(6,811,2.000);
-//        System.out.println(userSocialMatrix1.get(6,1065));
-//        System.out.println(userSocialMatrix1.contains(6,1065));
-//        userSocialMatrix1.set(6,1065,10.00);
-//        System.out.println(userSocialMatrix1.get(6,1065));
-//        System.out.println(userSocialMatrix1);
+//
         for (int i = 0; i < 1508; i++) {
             int count2 = 0;
             for (int k = 0; k < j; k++) {
@@ -359,8 +353,8 @@ public class SocialDataAppender extends Configured implements DataAppender {
                     if (countNumber >= 2) {
                         h2++;
                         // TODO 这里需要改回来
-                        dataTable1.put(i1, k, 0.8);
-                        colMap1.put(k, i1);
+//                        dataTable1.put(i1, k, 0.8);
+//                        colMap1.put(k, i1);
 //                        dataTable2.put(i1, k, 0.7);
 //                        colMap2.put(k, i1);
                     }
@@ -549,10 +543,10 @@ public class SocialDataAppender extends Configured implements DataAppender {
                     if (countAB == 1) {
                         temp = temp * tempAB;
                     }
-//                    if (temp > 0) {
-//                        dataTable2.put(sA, sB, temp);
-//                        colMap2.put(sB, sA);
-//                    }
+                    if (temp > 0) {
+                        dataTable2.put(sA, sB, temp);
+                        colMap2.put(sB, sA);
+                    }
 
                     double temp11 = 0.0;
                     double temp22 = 0.0;
@@ -569,8 +563,8 @@ public class SocialDataAppender extends Configured implements DataAppender {
                         }
 //                        dataTable1.put(sA, sB, temp11);
 //                        colMap1.put(sB, sA);
-                        dataTable2.put(sA, sB, temp11);
-                        colMap2.put(sB, sA);
+//                        dataTable2.put(sA, sB, temp11);
+//                        colMap2.put(sB, sA);
                     }
                     if (p2[sA][sB] >= 2) {
                         double f1 = 1.0;
@@ -584,8 +578,8 @@ public class SocialDataAppender extends Configured implements DataAppender {
                         }
 //                        dataTable1.put(sA, sB, temp22);
 //                        colMap1.put(sB, sA);
-                        dataTable2.put(sA, sB, temp22);
-                        colMap2.put(sB, sA);
+//                        dataTable2.put(sA, sB, temp22);
+//                        colMap2.put(sB, sA);
                     }
 
                 }

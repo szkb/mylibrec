@@ -55,7 +55,7 @@ public abstract class SocialRecommender extends MatrixFactorizationRecommender {
 
     protected float impSocialWeight = 0.8f;
 
-    protected float socialWeight = 0.8f;
+    protected float socialWeight = 1.0f;
 
     private int knn;
     private DenseVector userMeans;
@@ -80,18 +80,19 @@ public abstract class SocialRecommender extends MatrixFactorizationRecommender {
         for (int userIdx = 0; userIdx < numUsers; userIdx++) {
             for (int userIdj = 0; userIdj < numUsers; userIdj++) {
                 if (impSocialMatrix.contains(userIdx, userIdj) && impSocialMatrix.get(userIdx, userIdj) > 0) {
-//                    impSocialMatrix.set(userIdx, userIdj, socialWeight * impSocialMatrix.get(userIdx, userIdj)
-//                    + (1 - socialWeight) * similarity(userIdx, userIdj));
-                    dataTableImpSocialMatrix.put(userIdx, userIdj, impSocialWeight * impSocialMatrix.get(userIdx, userIdj)
-                    + (1 - impSocialWeight) * similarity(userIdx, userIdj));
-                } else {
-                    if (socialMatrix.contains(userIdx, userIdj)) {
-                        dataTableImpSocialMatrix.put(userIdx, userIdj, socialWeight * socialMatrix.get(userIdx, userIdj)
-                                + (1 - socialWeight) * similarity(userIdx, userIdj));                    }
+                    impSocialMatrix.set(userIdx, userIdj, socialWeight * impSocialMatrix.get(userIdx, userIdj)
+                    + (1 - socialWeight) * similarity(userIdx, userIdj));
+//                    dataTableImpSocialMatrix.put(userIdx, userIdj, impSocialWeight * impSocialMatrix.get(userIdx, userIdj)
+//                            + (1 - impSocialWeight) * similarity(userIdx, userIdj));
                 }
+//                } else {
+//                    if (socialMatrix.contains(userIdx, userIdj)) {
+//                        dataTableImpSocialMatrix.put(userIdx, userIdj, socialWeight * socialMatrix.get(userIdx, userIdj)
+//                                + (1 - socialWeight) * similarity(userIdx, userIdj));                    }
+//                }
             }
         }
-        impSocialMatrix = new SparseMatrix(numUsers, numUsers, dataTableImpSocialMatrix);
+//        impSocialMatrix = new SparseMatrix(numUsers, numUsers, dataTableImpSocialMatrix);
 
 
         // 求方差
