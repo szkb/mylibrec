@@ -1,1 +1,1 @@
-myLibrec
+mylibrec
